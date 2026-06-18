@@ -6,3 +6,6 @@ allowBuilds:
   msgpackr-extract: true
   protobufjs: true
   unrs-resolver: true
+
+packages:
+  - "."
