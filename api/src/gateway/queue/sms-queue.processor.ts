@@ -48,7 +48,7 @@ export class SmsQueueProcessor {
     @InjectModel(SMS.name) private smsModel: Model<SMS>,
     @InjectModel(SMSBatch.name) private smsBatchModel: Model<SMSBatch>,
     private webhookService: WebhookService,
-  ) {}
+  ) { }
 
   @Process({
     name: 'send-sms',
