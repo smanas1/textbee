@@ -1,4 +1,6 @@
 import 'dotenv/config'
+import * as dns from 'dns'
+dns.setDefaultResultOrder('ipv4first')
 import * as crypto from 'crypto'
 import { VersioningType, Logger } from '@nestjs/common'
 import { NestFactory } from '@nestjs/core'

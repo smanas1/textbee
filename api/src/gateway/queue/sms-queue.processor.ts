@@ -36,7 +36,20 @@ const FCM_ACTIONABLE_MESSAGE =
 
 function getFcmErrorMessage(error: { code?: string; message?: string } | null | undefined): string {
   const rawPart = `FCM_DELIVERY_FAILED: ${error?.message || 'FCM delivery failed'}`
-  return `${rawPart} — ${FCM_ACTIONABLE_MESSAGE}`
+  
+  if (error?.code) {
+    const code = String(error.code).toLowerCase().replace(/^messaging\//, '')
+    if (
+      code === 'registration-token-not-registered' ||
+      code === 'unregistered' ||
+      code === 'invalid-registration-token' ||
+      code === 'invalid-argument'
+    ) {
+      return `${rawPart} — ${FCM_ACTIONABLE_MESSAGE}`
+    }
+  }
+
+  return rawPart
 }
 
 @Processor('sms')
