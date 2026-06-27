@@ -48,20 +48,15 @@ services:
       dockerfile: Dockerfile
     restart: always
     ports:
-      - "${PORT:-3004}:3004"
+      - "${API_PORT:-3004}:3004"
     environment:
-      - PORT=${PORT:-3004}
+      - PORT=3004
       - MONGO_URI=${MONGO_URI:-mongodb://${MONGO_ROOT_USER:-adminUser}:${MONGO_ROOT_PASS:-adminPassword}@textbee-db:27017/textbee?authSource=admin}
       - MONGO_ROOT_USER=${MONGO_ROOT_USER:-adminUser}
       - MONGO_ROOT_PASS=${MONGO_ROOT_PASS:-adminPassword}
       - JWT_SECRET=${JWT_SECRET:-secret}
       - JWT_EXPIRATION=${JWT_EXPIRATION:-60d}
       - FRONTEND_URL=${FRONTEND_URL:-http://localhost:3005}
-      - FIREBASE_PROJECT_ID=${FIREBASE_PROJECT_ID}
-      - FIREBASE_PRIVATE_KEY_ID=${FIREBASE_PRIVATE_KEY_ID}
-      - FIREBASE_CLIENT_ID=${FIREBASE_CLIENT_ID}
-      - FIREBASE_CLIENT_EMAIL=${FIREBASE_CLIENT_EMAIL}
-      - FIREBASE_CLIENT_C509_CERT_URL=${FIREBASE_CLIENT_C509_CERT_URL}
       - MAIL_HOST=${MAIL_HOST:-smtp.gmail.com}
       - MAIL_PORT=${MAIL_PORT:-587}
       - MAIL_USER=${MAIL_USER}
@@ -94,9 +89,9 @@ services:
       dockerfile: Dockerfile
     restart: always
     ports:
-      - "${PORT:-3005}:3005"
+      - "${WEB_PORT:-3005}:3005"
     environment:
-      - PORT=${PORT:-3005}
+      - PORT=3005
       - NEXT_PUBLIC_SITE_URL=${NEXT_PUBLIC_SITE_URL:-http://localhost:3005}
       - NEXTAUTH_URL=${NEXTAUTH_URL:-http://localhost:3005}
       - NEXT_PUBLIC_API_BASE_URL=${NEXT_PUBLIC_API_BASE_URL:-http://localhost:3004/api/v1}
