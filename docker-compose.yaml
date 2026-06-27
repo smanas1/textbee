@@ -49,8 +49,6 @@ services:
     restart: always
     ports:
       - "${PORT:-3004}:3004"
-    env_file:
-      - ./api/.env
     environment:
       - PORT=${PORT:-3004}
       - REDIS_URL=${REDIS_URL:-redis://textbee-redis:6379}
@@ -74,8 +72,6 @@ services:
     restart: always
     ports:
       - "${PORT:-3005}:3005"
-    env_file:
-      - ./web/.env
     environment:
       - PORT=${PORT:-3005}
       - NEXT_PUBLIC_API_BASE_URL=${NEXT_PUBLIC_API_BASE_URL:-http://localhost:3004/api/v1}
