@@ -45,6 +45,7 @@ RUN npm install -g pnpm@9
 ENV NODE_ENV production
 ENV NEXT_TELEMETRY_DISABLED 1
 ENV CONTAINER_RUNTIME docker
+ENV HOSTNAME="0.0.0.0"
 
 # Add a non-root user to run the app
 RUN addgroup --system --gid 1001 nodejs && \
