@@ -60,7 +60,7 @@ android {
         prod {
             dimension "environment"
             applicationId "com.thelifehaven.sms"
-            buildConfigField "String", "API_BASE_URL", '"https://sms.thelifehaven.com/api/v1/"'
+            buildConfigField "String", "API_BASE_URL", '"https://api.sms.devnex.top/api/v1/"'
             buildConfigField "String", "ENVIRONMENT", '"production"'
             resValue "string", "app_name", "textbee.dev"
         }

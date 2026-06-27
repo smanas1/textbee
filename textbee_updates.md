@@ -10,6 +10,8 @@ Here is a comprehensive summary of the recent enhancements, configurations, and 
 
 ### 2. Android Project Configuration
 - **Android Initialization:** Initialized and configured the Android project structure to support native mobile integrations and FCM features.
+- **Production API URL:** Updated the Android production build configuration (`API_BASE_URL`) to use the new domain `https://api.sms.devnex.top/api/v1/`.
+- **Deployment Target:** Updated deployment target selector configuration for physical Android devices.
 
 ### 3. Server-Side Improvements
 - **Internal API Requests:** Added a dedicated server-side HTTP client tailored for internal API requests to streamline communication between services.
@@ -22,6 +24,7 @@ Here is a comprehensive summary of the recent enhancements, configurations, and 
   - MongoDB port mapping fixes.
   - Redis port mapping and configuration updates.
   - General service port alignments to prevent conflicts.
+- **Environment Fallbacks:** Switched the default Next.js build arguments in `docker-compose.yaml` to localhost endpoints (`http://localhost:3005` and `http://localhost:3004`) for `NEXT_PUBLIC_SITE_URL` and `NEXT_PUBLIC_API_BASE_URL`.
 
 ### 2. Workspace & Dependency Management
 - **PNPM Workspaces:** Configured `pnpm` workspaces for better monorepo management.
